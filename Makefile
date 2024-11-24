@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: taebkim <taebkim@student.42.fr>            +#+  +:+       +#+         #
+#    By: kimtaebin <kimtaebin@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/24 02:52:49 by taebkim           #+#    #+#              #
-#    Updated: 2024/11/24 04:15:52 by taebkim          ###   ########.fr        #
+#    Updated: 2024/11/25 00:13:11 by kimtaebin        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 BO_NAME = philo_bonus
 
-SRC = main.c utils.c error_handler.c
+SRC = main.c initialize.c utils.c error_handler.c philosophers.c
 SRCS = $(addprefix src/, $(SRC))
 
 BNS_SRC = main.c

@@ -6,7 +6,7 @@
 /*   By: kimtaebin <kimtaebin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:16:56 by taebkim           #+#    #+#             */
-/*   Updated: 2024/11/24 17:57:38 by kimtaebin        ###   ########.fr       */
+/*   Updated: 2024/11/25 00:15:08 by kimtaebin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 #include <stdlib.h>
 #include <sys/time.h>
 #include <unistd.h>
+
+typedef struct s_table t_table;
+typedef struct s_philo t_philo;
 
 typedef struct s_philo
 {
@@ -34,6 +37,7 @@ typedef struct s_philo
 	int right_fork;
 	int eat_count;
 	long last_eat;
+	t_table *link_table;
 } t_philo;
 
 typedef struct s_rules
@@ -88,6 +92,11 @@ typedef struct s_table
 	pthread_mutex_t last_ate; // 공유자원
 } t_table;
 
+// init
+int init_rules(int argc, char **argv, t_table *table);
+int init_mutex(t_table *table);
+int init_philosophers(t_table *table);
+
 void error(char *msg);
 
 // utils
@@ -99,5 +108,6 @@ int is_arg_valid(int number, int die, int eat, int sleep);
 
 // philosophers
 void *philosopher_routine(void *arg);
+void pick_up_forks(t_philo *philo);
 
 #endif
